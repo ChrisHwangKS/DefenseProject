@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapSizeX: 6
   mapSizeY: 12
+  enemySpawnPosition: {x: 0, y: 0}
+  enemyTargetPosition: {x: 5, y: 11}

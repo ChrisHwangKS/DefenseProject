@@ -17,4 +17,14 @@ public class GameMapInfo : ScriptableObject
     /// 게임 맵 크기 Y 를 나타냅니다
     /// </summary>
     public int mapSizeY;
+
+    /// <summary>
+    /// 적이 스폰되는 위치
+    /// </summary>
+    public Vector2Int enemySpawnPosition;
+
+    /// <summary>
+    /// 적이 이동하게될 목적지
+    /// </summary>
+    public Vector2Int enemyTargetPosition;
 }

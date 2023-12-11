@@ -411,6 +411,7 @@ MonoBehaviour:
     type: 2}
   m_GameBlockPrefab: {fileID: 7993853744858469102, guid: e40ffba41f4d4f14fab718e86f22c939,
     type: 3}
+  m_Camera: {fileID: 330585545}
 --- !u!4 &461623271
 Transform:
   m_ObjectHideFlags: 0
