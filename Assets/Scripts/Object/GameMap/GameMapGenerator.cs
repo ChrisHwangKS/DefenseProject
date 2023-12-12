@@ -11,7 +11,7 @@ public class GameMapGenerator : MonoBehaviour
     public GameMapInfo m_SampleGameMapInfo;
 
     [Header("게임 맵 블록 프리팹")]
-    public GameObject m_GameBlockPrefab;
+    public GameMapBlock m_GameBlockPrefab;
 
     [Header("카메라 변수")]
     public Camera m_Camera;
@@ -43,22 +43,30 @@ public class GameMapGenerator : MonoBehaviour
         {
             for(int y= 0; y< gameMapInfo.mapSizeY; ++y) 
             {
+                // 맵 블록 인덱스
+                Vector2Int mapBlockIndex = new(x, y);
+
                 // 맵 블록의 생성될 위치를 결정합니다.
                 Vector2 blockPosition = startGeneratinXY + (Constants.MAP_BLOCK_SIZE * new Vector2(x, y));
 
                 // 맵 블록을 생성합니다.
-                GameObject blockObject = Instantiate(m_GameBlockPrefab);
+                GameMapBlock blockObject = Instantiate(m_GameBlockPrefab);
+
+                // 맵 블록 타입을 선언합니다.
+                MapBlockType mapBlockType = MapBlockType.Default;
+
+                // 맵 인덱스에 따라 맵 블록 타입을 설정합니다.
+                if (mapBlockIndex == gameMapInfo.enemySpawnPosition) mapBlockType = MapBlockType.EnemySpawn;
+
+                else if(mapBlockIndex == gameMapInfo.enemyTargetPosition) mapBlockType = MapBlockType.EnemyTarget;
+
+                // 맵 블록 초기화
+                blockObject.InitializeMapBlock(mapBlockType);
 
                 // 위치를 설정합니다.
                 blockObject.transform.position = new Vector3(blockPosition.x, 0 ,blockPosition.y);
             }
         }
-
-        // 적의 생성 위치
-
-
-        // 적의 목표 지점
-
 
     }
 
