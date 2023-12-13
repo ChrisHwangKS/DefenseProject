@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class GameSceneUI : MonoBehaviour
 {
+    [Header("플레이어 컨트롤러")]
+    public PlayerController m_PlayerController;
+
     [Header("터렛1 생성 버튼")]
     public Button m_CreateTurret1;
 
@@ -18,7 +21,7 @@ public class GameSceneUI : MonoBehaviour
     /// </summary>
     private void OnCreateTurret1ButtonClicked()
     {
-        
+        m_PlayerController.CreatePreviewTurret(TurretType.Turret1);
     }
 
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Android;
 
 /// <summary>
 /// 게임 맵을 나타내기 위한 블록 객체를 나타냅니다.
@@ -37,15 +38,6 @@ public class GameMapBlock : MonoBehaviour
         _MeshRenderer = GetComponent<MeshRenderer>();
     }
 
-    /// <summary>
-    /// 맵 블록을 초기화합니다.
-    /// </summary>
-    /// <param name="mapBlockType">맵 블록 타입을 전달합니다.</param>
-    public void InitializeMapBlock(MapBlockType mapBlockType)
-    {
-        // 맵 블록 타입 설정
-        SetMapBlockType(mapBlockType);
-    }
 
     /// <summary>
     /// 맵 블록 타입을 설정합니다.
@@ -69,6 +61,33 @@ public class GameMapBlock : MonoBehaviour
             // 적 목표 블록 설정
             else if(mapBlockType == MapBlockType.EnemyTarget) EnemyTargetBlock = this;
         }
+    }
+
+    /// <summary>
+    /// 맵 블록을 초기화합니다.
+    /// </summary>
+    /// <param name="mapBlockType">맵 블록 타입을 전달합니다.</param>
+    public void InitializeMapBlock(MapBlockType mapBlockType)
+    {
+        // 맵 블록 타입 설정
+        SetMapBlockType(mapBlockType);
+    }
+
+    /// <summary>
+    /// 이 맵 블록 객체가 선택되었을 때 호출됩니다.
+    /// </summary>
+    public void OnMapBlockSelected()
+    {
+        _MeshRenderer.material.SetFloat(Constants.MAP_BLOCK_MATPARAM_EMISSION, Constants.MAP_BLOCK_SELECTED_EMISSION);
+    }
+
+    /// <summary>
+    /// 이 맵 블록 객체가 선택 해제되었을 때 호출됩니다.
+    /// </summary>
+    public void OnMapBlockUnselected()
+    {
+        _MeshRenderer.material.SetFloat(Constants.MAP_BLOCK_MATPARAM_EMISSION, Constants.MAP_BLOCK_UNSELECTED_EMISSION);
+
     }
 
 #if UNITY_EDITOR
