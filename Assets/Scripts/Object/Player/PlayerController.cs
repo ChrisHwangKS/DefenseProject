@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    /// <summary>
+    /// GameScene UI 를 나타냅니다.
+    /// </summary>
+    [Header("UI")]
+    public GameSceneUI m_GamaSceneUI;
+
+    /// <summary>
+    /// 터렛 정보들을 나타내는 Scriptable Object 에셋을 나타냅니다.
+    /// </summary>
+    [Header("Scriptable Object")]
+    public TurretInfo m_TurretInfoScriptablObject;
 
     /// <summary>
     /// 커서로 선택된 게임 맵 블록 객체를 나타냅니다.
@@ -20,7 +31,10 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public Vector3 m_CursorWorldPosition;
 
-
+    private void Awake()
+    {
+        m_GamaSceneUI.createTurret1ButtonEvent += () => CreateTurret(TurretType.Turret1);
+    }
 
     private void Update()
     {
@@ -89,10 +103,20 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
+    /// 터렛을 생성하는 메서드입니다.
+    /// GameSceneUI 의 터렛 생성 버튼 클릭 이벤트로 사용됩니다.
+    /// </summary>
+    /// <param name="turretType">생성시킬 터렛 타입을 전달합니다.</param>
+    private void CreateTurret(TurretType turretType)
+    {
+        CreatePreviewTurret(turretType);
+    }
+
+    /// <summary>
     /// 미리보기용 터렛을 생성합니다.
     /// </summary>
     /// <param name="turretType">생성할 터렛 타입을 전달합니다.</param>
-    public void CreatePreviewTurret(TurretType turretType)
+    private void CreatePreviewTurret(TurretType turretType)
     {
         // 터렛 설치 상태로 설정합니다.
         _IsBuildingTurret = true;

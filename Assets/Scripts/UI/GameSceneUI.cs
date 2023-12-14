@@ -1,27 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class GameSceneUI : MonoBehaviour
 {
-    [Header("플레이어 컨트롤러")]
-    public PlayerController m_PlayerController;
 
     [Header("터렛1 생성 버튼")]
     public Button m_CreateTurret1;
 
+    /// <summary>
+    /// 터렛1 생성 버튼 이벤트
+    /// </summary>
+    public event UnityAction createTurret1ButtonEvent;
+
     private void Awake()
     {
-        m_CreateTurret1.onClick.AddListener(OnCreateTurret1ButtonClicked);
+        m_CreateTurret1.onClick.AddListener(createTurret1ButtonEvent);
     }
 
-    /// <summary>
-    /// 터렛1 생성 버튼 클릭 시 호출되는 메서드입니다.
-    /// </summary>
-    private void OnCreateTurret1ButtonClicked()
-    {
-        m_PlayerController.CreatePreviewTurret(TurretType.Turret1);
-    }
 
 }

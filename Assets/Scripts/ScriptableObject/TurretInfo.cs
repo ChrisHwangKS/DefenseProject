@@ -18,6 +18,17 @@ public class TurretInfo : ScriptableObject
     /// </summary>
     [Header("터렛 데이터들")]
     public TurretData[] m_TurretDatas;
+
+
+    /// <summary>
+    /// 특정 터렛 데이터를 반환합니다.
+    /// </summary>
+    /// <param name="turretType">정보를 반환받을 터렛 타입을 전달합니다.</param>
+    /// <returns></returns>
+    public TurretData GetTurretData(TurretType turretType)
+    {
+        return default;
+    }
 }
 
 /// <summary>
