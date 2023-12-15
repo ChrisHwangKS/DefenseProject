@@ -591,7 +591,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25db50385be5c2458647529d992b4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlayerController: {fileID: 0}
   m_CreateTurret1: {fileID: 2003608487}
 --- !u!1 &1402396658
 GameObject:
@@ -690,7 +689,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ca5ea90bfb54c4688c6a1ad8a135ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CursorWorldPosition: {x: 0, y: 0, z: 0}
+  m_GameSceneUI: {fileID: 1076904008}
+  m_TurretInfoScriptableObject: {fileID: 11400000, guid: 63cfaecb1d9d58d40838d5774d95a2a9,
+    type: 2}
 --- !u!4 &1658190390
 Transform:
   m_ObjectHideFlags: 0

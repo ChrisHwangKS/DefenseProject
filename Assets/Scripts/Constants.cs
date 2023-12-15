@@ -1,4 +1,5 @@
 
+using UnityEngine;
 using UnityEngine.Android;
 /// <summary>
 /// 게임에 사용되는 상수를 정의합니다.
@@ -29,4 +30,16 @@ public static class Constants
     /// 맵 블록이 선택 해제되었을 때 _Emission 에 설정될 수치
     /// </summary>
     public const float MAP_BLOCK_UNSELECTED_EMISSION = 10.0f;
+
+    /// <summary>
+    /// 터렛 설치 가능 색상을 나타냅니다
+    /// </summary>
+    public static readonly Color32 TURRET_INSTALL_POSSIBLE_COLOR = new Color32(71,255,212,0);
+    // readonly : 읽기 전용필드입니다.
+    // 이 값은 클래스 생성자에서만 설정이 가능합니다.
+    
+    /// <summary>
+    /// 터렛 설치 불가능 색상을 나타냅니다.
+    /// </summary>
+    public static readonly Color32 TURRET_INSTALL_IMPOSSIBLE_COLOR = new Color32(255,11,38,0);
 }

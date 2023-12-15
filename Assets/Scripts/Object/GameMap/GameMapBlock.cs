@@ -25,6 +25,11 @@ public class GameMapBlock : MonoBehaviour
     private MeshRenderer _MeshRenderer;
 
     /// <summary>
+    /// 배치된 터렛 객체를 나타냅니다.
+    /// </summary>
+    private TurretCharacter _InTurret;
+
+    /// <summary>
     /// 맵 블록 타입에 대한 프로퍼티입니다.
     /// </summary>
     public MapBlockType mapBlockType
@@ -32,6 +37,11 @@ public class GameMapBlock : MonoBehaviour
         get;    // mapBlockType 에 대한 값 가져오기는 외부에서도 가능합니다.
         private set; // mapBlockType 에 대한 값 설정은 해당 클래스 내부에서만 가능
     }
+
+    /// <summary>
+    /// 터렛이 존재함을 나타냅니다.
+    /// </summary>
+    public bool isTurretExist => (_InTurret != null);
 
     private void Awake()
     {
@@ -88,6 +98,15 @@ public class GameMapBlock : MonoBehaviour
     {
         _MeshRenderer.material.SetFloat(Constants.MAP_BLOCK_MATPARAM_EMISSION, Constants.MAP_BLOCK_UNSELECTED_EMISSION);
 
+    }
+
+    /// <summary>
+    /// 터렛 캐릭터를 맵 블록에 설정합니다.
+    /// </summary>
+    /// <param name="turretCharacter">설정시킬 터렛 캐릭터를 전달합니다.</param>
+    public void SetTurret(TurretCharacter turretCharacter)
+    {
+        _InTurret = turretCharacter;
     }
 
 #if UNITY_EDITOR

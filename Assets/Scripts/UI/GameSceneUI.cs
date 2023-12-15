@@ -16,7 +16,7 @@ public class GameSceneUI : MonoBehaviour
     /// </summary>
     public event UnityAction createTurret1ButtonEvent;
 
-    private void Awake()
+    private void Start()
     {
         m_CreateTurret1.onClick.AddListener(createTurret1ButtonEvent);
     }

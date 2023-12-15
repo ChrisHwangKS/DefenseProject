@@ -25,9 +25,17 @@ public class TurretInfo : ScriptableObject
     /// </summary>
     /// <param name="turretType">정보를 반환받을 터렛 타입을 전달합니다.</param>
     /// <returns></returns>
-    public TurretData GetTurretData(TurretType turretType)
+    public TurretData? GetTurretData(TurretType turretType)
     {
-        return default;
+        foreach(TurretData turretData in m_TurretDatas)
+        {
+            if (turretData.turretType == turretType)
+            {
+                return turretData;
+            }
+        }
+
+        return null;
     }
 }
 
@@ -37,8 +45,10 @@ public class TurretInfo : ScriptableObject
 [Serializable]
 public struct TurretData
 {
+    public TurretType turretType;
+
     /// <summary>
     /// 터렛 프리팹입니다.
     /// </summary>
-    public TurretCharacter _TurretPrefabs;
+    public TurretCharacter turretPrefab;
 }
