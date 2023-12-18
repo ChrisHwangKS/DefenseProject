@@ -2,12 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// TurretCharacter 컴포넌트와 무조건 함께 사용되어야 하는 컴포넌트를 지정합니다.
+/// TurretDetectArea 컴포넌트는 TurretCharacter 컴포넌트를 추가할 때 같이 추가됩니다.
+/// </summary>
+[RequireComponent(typeof(TurretDetectArea))]
 public class TurretCharacter : BaseCharacter
 {
     /// <summary>
     /// 미리보기용 Material 을 나타냅니다.
     /// </summary>
     private Material _PreviewMaterial;
+
+    /// <summary>
+    /// 감지 영역 컴포넌트 입니다.
+    /// </summary>
+    private TurretDetectArea _DetectArea;
+
+    /// <summary>
+    /// _DetectArea 에 대한 읽기 전용 프로퍼티입니다.
+    /// </summary>
+    public TurretDetectArea detectArea => 
+        _DetectArea ?? (_DetectArea = GetComponent<TurretDetectArea>());
 
 
     protected override void Awake()
