@@ -42,4 +42,10 @@ public static class Constants
     /// 터렛 설치 불가능 색상을 나타냅니다.
     /// </summary>
     public static readonly Color32 TURRET_INSTALL_IMPOSSIBLE_COLOR = new Color32(255,11,38,0);
+
+    /// <summary>
+    /// 적 오브젝트의 레이어를 나타냅니다.
+    /// </summary>
+    public const string ENEMY_LAYER_NAME = "Enemy";
+
 }

@@ -16,5 +16,5 @@ MonoBehaviour:
     type: 2}
   m_TurretDatas:
   - turretType: 0
-    turretPrefab: {fileID: 8625467909275217222, guid: b28c9d9b5fc73ae42b3aec0657bfaa31,
+    turretPrefab: {fileID: 708169148741799878, guid: b28c9d9b5fc73ae42b3aec0657bfaa31,
       type: 3}
