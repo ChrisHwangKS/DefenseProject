@@ -93,6 +93,14 @@ public class TurretDetectArea : MonoBehaviour
         return detectedEnemies[0].GetComponent<EnemyCharacter>();
     }
 
+    /// <summary>
+    /// 적 감지를 시작합니다.
+    /// </summary>
+    public void StartDetectEnemy()
+    {
+        _AllowDetectEnemy = true;
+    }
+
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {

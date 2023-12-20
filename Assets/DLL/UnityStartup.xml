@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UnityStartup</name>
+    </assembly>
+    <members>
+        <member name="T:startup.util.IObjectPoolable">
+            <summary>
+            오브젝트 풀링에 대한 기능을 나타내기 위한 인터페이스입니다.
+            </summary>
+        </member>
+        <member name="M:startup.util.IObjectPoolable.IsRecyclable">
+            <summary>
+            오브젝트가 현재 재사용 될 수 있음에 대한 여부를 나타냅니다.
+            </summary>
+            <returns>재사용 가능한 상태라면 true 를 리턴합니다.</returns>
+        </member>
+        <member name="T:startup.util.ObjectPool`1">
+            <summary>
+            오브젝트 풀링을 수행하는 클래스입니다.
+            풀링 대상을 형식 매개 변수 T 에 전달합니다.
+            형식 매개 변수의 조건은 IObjectPoolable 인터페이스를 구현하는 클래스 입니다.
+            </summary>
+        </member>
+        <member name="M:startup.util.ObjectPool`1.RegisterRecyclableObject(`0)">
+            <summary>
+            재사용 가능한 객체를 풀에 등록시킵니다.
+            </summary>
+            <param name="newRecyclableObject">등록시킬 객체를 전달합니다.</param>
+            <returns>등록시킨 객체를 반환합니다.</returns>
+        </member>
+        <member name="M:startup.util.ObjectPool`1.GetRecycleObject">
+            <summary>
+            재활용 가능한 객체를 찾아 반환합니다.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

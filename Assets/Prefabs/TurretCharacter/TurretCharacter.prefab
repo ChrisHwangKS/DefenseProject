@@ -61,6 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59ebc1ebb2fb07747a6430b9a3370b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_BulletPrefab: {fileID: 4808629736291122032, guid: f380c63c9f83d8947ac7ed8bf1400edc,
+    type: 3}
 --- !u!114 &708169148741799878
 MonoBehaviour:
   m_ObjectHideFlags: 0

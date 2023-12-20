@@ -65,6 +65,9 @@ public class TurretCharacter : BaseCharacter
     public void FinishPreviewMode()
     {
         meshRenderer.material = originalMaterial;
+
+        // 적 감지를 시작합니다.
+        _DetectArea.StartDetectEnemy();
     }
 
 }
