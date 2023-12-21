@@ -48,6 +48,11 @@ public struct TurretData
     public TurretType turretType;
 
     /// <summary>
+    /// °ø°İ µô·¹ÀÌ
+    /// </summary>
+    public float _AttackDelay;
+
+    /// <summary>
     /// ÅÍ·¿ ÇÁ¸®ÆÕÀÔ´Ï´Ù.
     /// </summary>
     public TurretCharacter turretPrefab;

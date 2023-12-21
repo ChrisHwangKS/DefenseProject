@@ -48,4 +48,19 @@ public static class Constants
     /// </summary>
     public const string ENEMY_LAYER_NAME = "Enemy";
 
+    /// <summary>
+    /// 총알 최대 이동 거리
+    /// </summary>
+    public const float BULLET_MAX_DISTANCE = 50.0f;
+
+    /// <summary>
+    /// 총알 속력입니다.
+    /// </summary>
+    public const float BULLET_SPEED = 7.0f;
+
+    /// <summary>
+    /// 총알 반지름입니다.
+    /// </summary>
+    public const float BULLET_RADIUS = 0.04f;
+
 }

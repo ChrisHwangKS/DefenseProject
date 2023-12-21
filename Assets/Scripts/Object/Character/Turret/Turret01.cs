@@ -28,6 +28,14 @@ public sealed class Turret01 : TurretCharacter
         detectArea.onEnemyDetected += OnEnemyDetected;
     }
 
+    public override void InitializeTurretCharacter(Material previewMaterial, in TurretData const_TurretData)
+    {
+        base.InitializeTurretCharacter(previewMaterial, const_TurretData);
+
+        // 공격 객체 초기화
+        _TurretAttack.Initialize(turretData._AttackDelay);
+    }
+
     /// <summary>
     /// 적이 감지되었을 경우 호출되는 메서드입니다.
     /// </summary>

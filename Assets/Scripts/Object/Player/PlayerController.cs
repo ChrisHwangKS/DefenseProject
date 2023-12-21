@@ -83,6 +83,9 @@ public class PlayerController : MonoBehaviour
                     break;
 
                 case PlayerState.TurretBuildMode:
+                    // 선택된 게임 맵 블록이 존재하지 않는다면 break;
+                    if (_SelectedGameMapBlock == null) break;
+
                     // 터렛 설치 불가능 상태의 블록이라면 설치를 중단합니다.
                     if (_SelectedGameMapBlock.isTurretExist) break;
 
@@ -226,6 +229,7 @@ public class PlayerController : MonoBehaviour
 
         // 미리보기 터렛 오브젝트 생성
         TurretData? turretData = m_TurretInfoScriptableObject.GetTurretData(turretType);
+
         //if (turretData == null)
         if (!turretData.HasValue)
         {
@@ -240,7 +244,7 @@ public class PlayerController : MonoBehaviour
         Material previewMaterial = m_TurretInfoScriptableObject.m_TurretPreviewMaterial;
 
         // 미리보기용 터렛 객체 초기화
-        previewTurret.InitializeTurretCharacter(previewMaterial);
+        previewTurret.InitializeTurretCharacter(previewMaterial, turretData.Value);
 
         // 미리보기 모드로 설정합니다.
         previewTurret.SetPreviewMode();
