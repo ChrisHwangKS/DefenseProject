@@ -2,7 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Android;
+
+/// <summary>
+/// 길찾기에 사용될 노드 클래스
+/// </summary>
+public class Node
+{
+    /// <summary>
+    /// 노드 위치
+    /// </summary>
+    public Vector2Int nodePosition { get; set; }
+
+    /// <summary>
+    /// 시작 지점부터 드는 비용
+    /// </summary>
+    public int costFromStart {  get; set; }
+
+    /// <summary>
+    /// 도착지까지 예상되는 비용
+    /// </summary>
+    public int heuristicToGoal { get; set; }
+
+    /// <summary>
+    /// 총 비용
+    /// </summary>
+    public int totalCost => costFromStart + heuristicToGoal;
+
+    /// <summary>
+    /// 기반 노드
+    /// </summary>
+    public Node baseNode { get; set; }
+}
 
 /// <summary>
 /// 게임 맵을 나타내기 위한 블록 객체를 나타냅니다.
@@ -28,6 +58,11 @@ public class GameMapBlock : MonoBehaviour
     /// 배치된 터렛 객체를 나타냅니다.
     /// </summary>
     private TurretCharacter _InTurret;
+
+    /// <summary>
+    /// 이 블록에 대한 노드입니다.
+    /// </summary>
+    public Node node { get; private set; } = new();
 
     /// <summary>
     /// 맵 블록 타입에 대한 프로퍼티입니다.

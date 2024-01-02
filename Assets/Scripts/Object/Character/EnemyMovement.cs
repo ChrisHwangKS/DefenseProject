@@ -10,6 +10,17 @@ public class EnemyMovement : MonoBehaviour
     [Header("이동 속력")]
     public float m_MoveSpeed;
 
+    /// <summary>
+    /// 이동에 사용될 경유지 목록을 나타냅니다.
+    /// </summary>
+    private List<GameMapBlock> m_Stopovers;
+
+    private void Start()
+    {
+        // 경유지를 얻습니다.
+        m_Stopovers = GameManager.instance.m_Stopovers;
+    }
+
     private void Update()
     {
         MoveToTarget();
